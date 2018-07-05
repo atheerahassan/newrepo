@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
-import { TabPage } from '../tab/tab';
+ import { TabPage } from '../tab/tab';
 
 @Component({
   selector: 'page-home',
@@ -13,7 +13,10 @@ export class HomePage
 
   public onButtonClicked(): void 
   {
-    let modal = this.modalCtrl.create(TabPage);
+    let modal = this.modalCtrl.create('TabPage');
     modal.present();
+  }
+  click(){
+    this.navCtrl.push("TabPage");
   }
 }

@@ -1,19 +1,39 @@
+<ion-menu [content]="content">
 <ion-header>
     <ion-navbar>
+      <ion-buttons start>
+        <button ion-button icon-only menuToggle>
+            <ion-icon name=menu></ion-icon>
+          </button>
+
+        </ion-buttons>
       <ion-title>
-        New Page
+        REVIEWS
       </ion-title>
+    
     </ion-navbar>
   </ion-header>
   
-  <ion-content padding class="bg">
-    This is a new page for the trial. Yayy.
+  <ion-content>
+
+      <ion-list>
+          <button ion-item menuClose *ngFor="let p of pages" (click)="openPage(p)">
+              <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+              {{ p.title }}
+            </button>
+        </ion-list>
+
+    <!-- This is a new page for the trial. Yayy.
   
     <p>
       <button ion-button full (click)="onButtonClicked()">
         Back
       </button>
-    </p>
+    </p> -->
    
   </ion-content>
+</ion-menu>
    
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false">
+  
+</ion-nav>
